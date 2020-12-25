@@ -1,5 +1,13 @@
 # Mathematical Thinking in Computer Science
 
+Mathematical thinking is crucial in all areas of computer science: algorithms, bioinformatics, computer graphics, data science, machine learning, etc. In this course, we will learn the most important tools used in discrete mathematics: induction, recursion, logic, invariants, examples, optimality. We will use these tools to answer typical programming questions like: How can we be certain a solution exists? Am I sure my program computes the optimal answer? Do each of these objects meet the given requirements?
+
+In the course, we use a try-this-before-we-explain-everything approach: you will be solving many interactive (and mobile friendly) puzzles that were carefully designed to allow you to invent many of the important ideas and concepts yourself.
+
+Prerequisites:
+1. We assume only basic math (e.g., we expect you to know what is a square or how to add fractions), common sense and curiosity.
+2. Basic programming knowledge is necessary as some quizzes require programming in Python.
+
 ## Week 1 - Making Convincing Arguments
 
 Why some arguments are convincing and some others are not? What makes an argument convincing? How can you establish your argument in such a way that there is no room for doubt left? How can mathematical thinking help with this? In this section, we start digging into these questions. Our goal is to learn by examples how to understand proofs, how to discover them on your own, how to explain them, and — last but not least — how to enjoy them: we will see how a small remark or a simple observation can turn a seemingly non-trivial question into an obvious one.how to discover them on your own

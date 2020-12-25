@@ -1,5 +1,17 @@
 # Combinatorics and Probability
 
+Counting is one of the basic mathematically related tasks we encounter on a day to day basis. The main question here is the following. If we need to count something, can we do anything better than just counting all objects one by one? Do we need to create a list of all phone numbers to ensure that there are enough phone numbers for everyone? Is there a way to tell that our algorithm will run in a reasonable time before implementing and actually running it? All these questions are addressed by a mathematical field called Combinatorics.
+
+In this course we discuss most standard combinatorial settings that can help to answer questions of this type. We will especially concentrate on developing the ability to distinguish these settings in real life and algorithmic problems. This will help the learner to actually implement new knowledge. Apart from that we will discuss recursive technique for counting that is important for algorithmic implementations.
+
+One of the main `consumers’ of Combinatorics is Probability Theory. This area is connected with numerous sides of life, on one hand being an important concept in everyday life and on the other hand being an indispensable tool in such modern and important fields as Statistics and Machine Learning. In this course we will concentrate on providing the working knowledge of basics of probability and a good intuition in this area. The practice shows that such an intuition is not easy to develop.
+
+In the end of the course we will create a program that successfully plays a tricky and very counterintuitive dice game.
+
+As prerequisites we assume only basic math (e.g., we expect you to know what is a square or how to add fractions), basic programming in python (functions, loops, recursion), common sense and curiosity. Our intended audience are all people that work or plan to work in IT, starting from motivated high school students.
+
+Do you have technical problems? Write to us: coursera@hse.ru
+
 ## Week 1 - Basic Counting
 
 Suppose we need to count certain objects. Can we do anything better than just list all the objects? Do we need to create a list all phone numbers to check whether there are enough phone numbers for everyone? Is there a way to tell whether our algorithm will run in a reasonable time before implementing and actually running it? All these questions are addressed by a mathematical field called Combinatorics. In this module we will give an introduction to this field that will help us to answer basic versions of the above questions.
