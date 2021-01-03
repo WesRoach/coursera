@@ -24,4 +24,3 @@ from stable_matching import stableMatching
 )
 def test_stableMatching(n, menPreferences, womenPreferences, expected):
     assert expected == stableMatching(n, menPreferences, womenPreferences)
-    # assert expected == expected
