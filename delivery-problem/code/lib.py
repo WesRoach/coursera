@@ -165,9 +165,6 @@ def nearest_neighbors(g):
     return weight
 
 
-import networkx as nx
-
-
 def lower_bound(g, sub_cycle):
     """
     Quiz: Branch and Bound
@@ -233,18 +230,23 @@ def branch_and_bound(g, sub_cycle=None, current_min=float("inf")):
     Quiz: Branch and Bound
     ----------------------
 
-    The branch and bound procedure takes
-    1. a graph g
-    2. the current sub_cycle, i.e. several first vertices of cycle
-    under consideration. Initially sub_cycle is empty;
-    3. currently best solution current_min, so that we don't even
-    consider paths of greater weight. Initially the min weight is infinite
+    Arguments
+    ---------
+        g: a graph
+        sub_cycle: several first vertices of cycle under
+            consideration.
+            Initially sub_cycle is empty
+        current_min: current best solution, so that we don't even
+            consider paths of greater weight.
+            Initially the min weight is infinite
     """
-    # If the current path is empty, then we can safely assume that it starts with the vertex 0.
+    # If the current path is empty, then we can safely assume that it starts
+    # with the vertex 0.
     if sub_cycle is None:
         sub_cycle = [0]
 
-    # If we already have all vertices in the cycle, then we just compute the weight of this cycle and return it.
+    # If we already have all vertices in the cycle, then we just compute the
+    # weight of this cycle and return it.
     if len(sub_cycle) == g.number_of_nodes():
         weight = sum(
             [
@@ -272,11 +274,13 @@ def branch_and_bound(g, sub_cycle=None, current_min=float("inf")):
         # For each unused vertex, we check if there is any chance to find a
         # shorter cycle if we add it now.
         if lower_bound(g, extended_subcycle) < current_min:
-            pass
             # WRITE YOUR CODE HERE
             # If there is such a chance, we add the vertex to the current
             # cycle, and proceed recursively. If we found a short cycle, then
             # we update the current_min value.
+            this_min = branch_and_bound(g, sub_cycle, current_min)
+            if this_min < current_min:
+                current_min = this_min
 
     # The procedure returns the shortest cycle length.
     return current_min
