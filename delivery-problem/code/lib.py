@@ -1,6 +1,6 @@
 import networkx as nx
 import math
-from itertools import permutations, combinations
+from itertools import permutations, chain, combinations
 
 
 def cycle_length(g, cycle):
@@ -284,3 +284,108 @@ def branch_and_bound(g, sub_cycle=None, current_min=float("inf")):
 
     # The procedure returns the shortest cycle length.
     return current_min
+
+
+def dp(G):
+    """
+    Michael Levin discusses in lecture.
+
+    - Running time is about (n^2)*(2^n)
+    - Better than n!, but still too slow (already for n=20)
+    """
+    n = G.number_of_nodes()
+    T = [[float("inf")] * (1 << n) for _ in range(n)]
+    T[0][1] = 0
+    for s in range(1 << n):
+        if sum(((s >> j) & 1) for j in range(n)) <= 1 or not (s & 1):
+            continue
+
+    for i in range(1, n):
+        if not ((s >> i) & 1):
+            continue
+        for j in range(n):
+            if j == i or not ((s >> j) & 1):
+                continue
+
+            T[i][s] = min(T[i][s], T[j][s ^ (1 << i)] + G[i][j]["weight"])
+
+    return min(T[i][(1 << n) - 1] + G[0][i]["weight"] for i in range(1, n))
+
+
+def powerset(s):
+    """
+    Quiz: Dynamic Programming
+    -------------------------
+
+    This function returns all the subsets of the given set s in the
+    increasing order of their sizes.
+    """
+    return chain.from_iterable(combinations(s, r) for r in range(len(s) + 1))
+
+
+def dynamic_programming(g):
+    """
+    Quiz: Dynamic Programming
+    -------------------------
+
+    This function finds an optimal Hamiltonian cycle using the dynamic
+    programming approach.
+
+    This function takes as input a graph g.
+    The graph is complete (i.e., each pair of distinct vertices is
+    connected by an edge), undirected (i.e., the edge from u to v has
+    the same weight as the edge from v to u), and has no self-loops
+    (i.e., there are no edges from i to i).
+
+    The function should return an optimal weight of a Hamiltonian cycle.
+    """
+    # n is the number of vertices.
+    n = g.number_of_nodes()
+
+    # The variable power now contains a tuple for each subset of the set
+    # {1, ..., n-1}.
+    power = powerset(range(1, n))
+    # The variable T is a dictionary, where the element T[s, i] for a set s
+    # and an integer i equals the shortest path going through each vertex from
+    # s exactly once, and ending at the vertex i.
+    # Note that i must be in s.
+    # Also, always assume that we start our cycle from the vertex number 0.
+    # Thus, for convenience, we always exclude the element 0 from the set s.
+    T = {}
+    # For every non-zero vertex i, we say that
+    # T[ tuple with the element i only, i] equals the weight of the edge
+    # from 0 to i.
+    # Indeed, by the definition of T, this element must be equal to the weight
+    # of the shortest path which goes through the vertices 0 and i and ends at
+    # the vertex i.
+    for i in range(1, n):
+        # Syntactic note: In Python, we define a tuple of length 1 that
+        # contains the element i as (i,) *with comma*.
+        T[(i,), i] = g[0][i]["weight"]
+
+    # For every subset s of [1,...,n-1]
+    for s in power:
+        # We have already initialized the elements of T indexed by sets of size
+        # 1, so we skip them.
+        if len(s) > 1:
+            # For every vertex i from s which we consider as the ending vertex
+            # of a path going through vertices from s.
+            for i in s:
+                # Define the tuple which contains all elements from s without
+                # *the last vertex* i.
+                t = tuple([x for x in s if x != i])
+                # Now we compute the optimal value of a cycle which visits all
+                # vertices from s and ends at the vertex i.
+
+                T[s, i] = float("inf")
+                for j in s:
+                    if j == i:
+                        continue
+                    T[s, i] = min(T[s, i], T[t, j] + g[i][j]["weight"])
+
+    # Return the weight of on optimal cycle - this is the minimum of the
+    # following sum:
+    # weight of a path + the last edge to the vertex 0.
+    return min(
+        T[tuple(range(1, n)), i] + g[i][0]["weight"] for i in range(1, n)
+    )

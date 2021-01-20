@@ -23,7 +23,7 @@ for v in g.nodes():
 
 g.edges()
 
-g[0][1]['weight']
+g[0][1]["weight"]
 
 points = [(idx, t) for idx, t in enumerate(points)]
 points
@@ -52,9 +52,6 @@ g.degree()
 nx.weisfeiler_lehman_graph_hash(g)
 
 g[0][1]["weight"]
-
-
-
 
 
 g = nx.Graph()
