@@ -9,6 +9,7 @@ from lib import (
     point_distance,
     complete_undirected_graph,
     nearest_neighbors,
+    approximation,
 )
 
 
@@ -39,7 +40,9 @@ def test_cycle_length(g, cycle, expected):
 
 @pytest.mark.parametrize(
     "g,expected",
-    [(g, 6),],  # black .............................................................
+    [
+        (g, 6),
+    ],  # black .............................................................
 )
 def test_all_permutations(g, expected):
     assert expected == all_permutations(g)
@@ -83,9 +86,26 @@ def test_complete_undirected_graph(points, graph_hash):
 @pytest.mark.parametrize(
     "coordinates,expected",
     [
-        ([(174, 25), (129, 99), (268, 212), (211, 209), (156, 82)], 495.2566051488006,),
+        (
+            [(174, 25), (129, 99), (268, 212), (211, 209), (156, 82)],
+            495.2566051488006,
+        ),
     ],  # black .............................................................
 )
 def test_nearest_neighbors(coordinates, expected):
     g = complete_undirected_graph(coordinates)
     assert expected == nearest_neighbors(g)
+
+
+@pytest.mark.parametrize(
+    "coordinates,expected",
+    [
+        (
+            [(174, 25), (129, 99), (268, 212), (211, 209), (156, 82)],
+            495.2566051488006,
+        ),
+    ],  # black .............................................................
+)
+def test_approximation(coordinates, expected):
+    g = complete_undirected_graph(coordinates)
+    assert expected == approximation(g)

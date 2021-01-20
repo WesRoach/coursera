@@ -7,58 +7,25 @@ from itertools import permutations, combinations
 
 from lib import point_distance, complete_undirected_graph
 
-242.10122702547523 * 2
-
 points = [(174, 25), (129, 99), (268, 212), (211, 209), (156, 82)]
 points
 
 g = complete_undirected_graph(points)
 
-n = 3
+nx.draw_networkx(g)
 
-for v in g.nodes():
-    if v == n:
-        continue
-    print(v)
+n = g.number_of_nodes()
 
-g.edges()
+T = nx.minimum_spanning_tree(g)
 
-g[0][1]["weight"]
+nx.draw_networkx(T)
 
-points = [(idx, t) for idx, t in enumerate(points)]
-points
+ECycle = nx.eulerian_path(T)
 
-comb = [x for x in combinations(points, 2)]
-comb
+[x for x in ECycle]
 
-for c in comb:
-    print(c[0][1][0], c[0][1][1])
+lst = nx.dfs_preorder_nodes(T, 0)
 
-g = nx.Graph()
-
-for c in comb:
-    idx1 = c[0][0]
-    idx2 = c[1][0]
-    p1 = c[0][1]
-    p2 = c[1][1]
-    g.add_edge(idx1, idx2, weight=point_distance(p1, p2))
-
-g.nodes()
-
-g.edges()
-
-g.degree()
-
-nx.weisfeiler_lehman_graph_hash(g)
-
-g[0][1]["weight"]
+[x for x in lst]
 
 
-g = nx.Graph()
-
-for idx, point in enumerate(points):
-    g.add_node(idx, pos=point)
-
-g.nodes()
-
-g.get_edge_pos()

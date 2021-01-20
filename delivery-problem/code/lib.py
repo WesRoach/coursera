@@ -288,7 +288,7 @@ def branch_and_bound(g, sub_cycle=None, current_min=float("inf")):
 
 def dp(G):
     """
-    Michael Levin discusses in lecture.
+    Alexander S. Kulikov discusses in lecture.
 
     - Running time is about (n^2)*(2^n)
     - Better than n!, but still too slow (already for n=20)
@@ -389,3 +389,34 @@ def dynamic_programming(g):
     return min(
         T[tuple(range(1, n)), i] + g[i][0]["weight"] for i in range(1, n)
     )
+
+
+def approximation(g):
+    """
+    This function takes as input a graph g.
+
+    The graph is complete (i.e., each pair of distinct vertices is
+    connected by an edge), undirected (i.e., the edge from u to v has
+    the same weight as the edge from v to u), and has no self-loops
+    (i.e., there are no edges from i to i).
+
+    The function should return a 2-approximation of an optimal
+    Hamiltonian cycle.
+    """
+    # n is the number of vertices.
+    n = g.number_of_nodes()
+
+    # You might want to use the function "nx.minimum_spanning_tree(g)"
+    # which returns a Minimum Spanning Tree of the graph g
+    mst = nx.minimum_spanning_tree(g)
+
+    # You also might want to use the command
+    # "list(nx.dfs_preorder_nodes(graph, 0))" which gives a list of vertices of
+    # the given graph in depth-first preorder.
+    dfs = list(nx.dfs_preorder_nodes(mst, 0))
+
+    weight = 0
+    for i in range(0, len(dfs)):
+        weight += g[dfs[i]][dfs[(i + 1) % len(dfs)]]["weight"]
+
+    return weight
