@@ -8,7 +8,7 @@
 g++ -pipe -O2 -std=c++14 APlusB.cpp -lm
 ```
 
-## Max Pairwise Prodcut
+## Max Pairwise Product
 
 ### C++
 
