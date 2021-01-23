@@ -8,6 +8,10 @@ Solve programmign assignments in one of: Python, C++, Java, C#, Javascript, C, H
 
 Starter solutions provided in: C++, Java, Python
 
+## Prior Knowledge
+
+Discrete Mathematics, specifically: proof by induction, proof by contradiction
+
 ## Course Structure
 
 ### Week 1: Programming Challenges
