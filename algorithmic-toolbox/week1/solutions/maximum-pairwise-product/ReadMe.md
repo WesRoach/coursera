@@ -9,7 +9,7 @@ g++ -pipe -O2 -std=c++14 max_pairwise_product.cpp -lm
 ### Go
 
 ```bash
-go test -v
+go run max_pairwise_product.go
 ```
 ### Test Cases
 
