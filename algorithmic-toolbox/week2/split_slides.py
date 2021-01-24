@@ -72,3 +72,23 @@ split_slides(
 # 1-intro-4-1-runtimes.pdf
 # These pages numbers are the displayed page numbers
 split_slides("1-intro-4-1-runtimes.pdf", "reduced-slides", remove_pages=[4, 18])
+
+# 1-intro-4-2-asymptoticnotation1.pdf
+# These pages numbers are the displayed page numbers
+split_slides(
+    "1-intro-4-2-asymptoticnotation1.pdf", "reduced-slides", remove_pages=[4, 9, 10]
+)
+
+# 1-intro-4-2-asymptoticnotation2.pdf
+# These pages numbers are the displayed page numbers
+split_slides(
+    "1-intro-4-2-asymptoticnotation2.pdf", "reduced-slides", remove_pages=[3, 9, 10]
+)
+
+# 1-intro-4-2-asymptoticnotation3.pdf
+# These pages numbers are the displayed page numbers
+split_slides(
+    "1-intro-4-2-asymptoticnotation3.pdf",
+    "reduced-slides",
+    remove_pages=[*range(4, 8), *range(10, 17)],
+)
