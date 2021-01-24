@@ -65,12 +65,10 @@ split_slides("1-intro-3-GCD1.pdf", "reduced-slides", remove_pages=[3, 4, 7, 8, 1
 
 # 1-intro-3-GCD2.pdf
 # These pages numbers are the displayed page numbers
-split_slides("1-intro-3-GCD2.pdf", "reduced-slides", remove_pages=[3, 7])
+split_slides(
+    "1-intro-3-GCD2.pdf", "reduced-slides", remove_pages=[3, 7, *range(9, 15), 16],
+)
 
 # 1-intro-4-1-runtimes.pdf
 # These pages numbers are the displayed page numbers
-split_slides(
-    "1-intro-4-1-runtimes.pdf",
-    "reduced-slides",
-    remove_pages=[4, 18, *range(9, 15), 16],
-)
+split_slides("1-intro-4-1-runtimes.pdf", "reduced-slides", remove_pages=[4, 18])
