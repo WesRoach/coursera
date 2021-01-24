@@ -6,7 +6,12 @@
 g++ -pipe -O2 -std=c++14 max_pairwise_product.cpp -lm
 ```
 
-#### Test Cases
+### Go
+
+```bash
+go test -v
+```
+### Test Cases
 
 ```bash
 ./a.out
