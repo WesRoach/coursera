@@ -142,3 +142,15 @@ cython_debug/
 
 # Mac image thumbnails
 .DS_Store
+
+# Bazel
+*~
+bazel-*
+.bazelrc
+.idea
+# Eclipse
+.project
+.classpath
+.settings/
+# Maven
+target/
