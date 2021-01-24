@@ -26,7 +26,7 @@ def split_slides(
             page for page in range(1, pdf.getNumPages() + 1) if page not in remove_pages
         ]
 
-    print(f"File: {input_slides}; Pages: {pages}")
+    print(f"File: {input_slides}; {len(pages)} Pages: {pages}")
 
     # PdfFileReader reads/writes 0-indexed
     pages = [page - 1 for page in pages]
@@ -91,4 +91,10 @@ split_slides(
     "1-intro-4-2-asymptoticnotation3.pdf",
     "reduced-slides",
     remove_pages=[*range(4, 8), *range(10, 17)],
+)
+
+# 1-intro-5-courseoverview.pdf
+# These pages numbers are the displayed page numbers
+split_slides(
+    "1-intro-5-courseoverview.pdf", "reduced-slides", remove_pages=[6, *range(8, 11)],
 )
