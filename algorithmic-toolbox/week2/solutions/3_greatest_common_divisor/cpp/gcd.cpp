@@ -34,6 +34,7 @@ void test_solution()
 {
     assert(gcd_fast(18, 35) == 1);
     assert(gcd_fast(28851538, 1183019) == 17657);
+    assert(gcd_fast(1827116622, 251772294) == 6);
 }
 
 int main()
@@ -42,7 +43,7 @@ int main()
 
     int a, b;
     std::cin >> a >> b;
-    std::cout << gcd_naive(a, b) << std::endl;
+    std::cout << gcd_fast(a, b) << std::endl;
 
     return 0;
 }
