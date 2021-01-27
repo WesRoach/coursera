@@ -1,4 +1,4 @@
-def get_fibonacci_last_digit_naive(n: int):
+def get_fibonacci_last_digit_fast(n: int):
     if n <= 1:
         return n
     prev, current = 0, 1
@@ -9,4 +9,4 @@ def get_fibonacci_last_digit_naive(n: int):
 
 
 n = int(input())
-print(get_fibonacci_last_digit_naive(n))
+print(get_fibonacci_last_digit_fast(n))
