@@ -10,21 +10,22 @@ long long get_fibonacci_partial_sum(long long start, long long end)
 
     long long sum = 0;
 
-    for (long long i = 2; i < end + 1; ++i)
+    for (long long i = 1; i < end + 1; ++i)
     {
-        swap = current;
-        current = (current + prev) % 10;
-        prev = swap;
         if (i >= start)
         {
             sum = sum + current;
         }
+        swap = current;
+        current = (current + prev) % 10;
+        prev = swap;
     }
     return sum % 10;
 }
 
 void test_solution()
 {
+    assert(get_fibonacci_partial_sum(1, 2) == 2);
     assert(get_fibonacci_partial_sum(3, 7) == 1);
     assert(get_fibonacci_partial_sum(10, 10) == 5);
     assert(get_fibonacci_partial_sum(10, 200) == 2);
