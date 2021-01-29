@@ -1,4 +1,4 @@
-package fibonacci
+package main
 
 type inputTest struct {
 	input    int64
