@@ -44,7 +44,7 @@ if __name__ == "__main__":
     weights = []
     values = []
     for _ in range(0, n):
-        weight, value = map(int, input().split())
+        value, weight = map(int, input().split())
         weights.append(weight)
         values.append(value)
     # print(f"n: {n}")

@@ -36,7 +36,7 @@ if __name__ == "__main__":
     m = int(input())
     n = int(input())  # not need for python implementation
     stops = [x for x in map(int, input().split())]
-    print(f"d: {d}")
-    print(f"d: {m}")
-    print(f"stops: {stops}")
+    # print(f"d: {d}")
+    # print(f"d: {m}")
+    # print(f"stops: {stops}")
     print(compute_min_refills(d, m, stops))
