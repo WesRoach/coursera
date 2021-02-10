@@ -1,18 +1,21 @@
-# Uses python3
-import sys
+def get_majority_element(a: list) -> int:
+    """Returns 1 if list contains a majority element, otherwise: 0"""
+    count = dict()
+    for value in a:
+        if value not in count:
+            count[value] = 0
+        count[value] = count[value] + 1
 
-def get_majority_element(a, left, right):
-    if left == right:
-        return -1
-    if left + 1 == right:
-        return a[left]
-    #write your code here
-    return -1
+    # sorted() returns [(value, cnt), (value, cnt), (), ...]
+    # with the most frequenctly counted value in the first position
+    # [0][1] returns the count of the most frequency value
+    max_count = sorted(count.items(), key=lambda x: x[1], reverse=True)[0][1]
+    if max_count > (len(a) / 2):
+        return 1
+    return 0
 
-if __name__ == '__main__':
-    input = sys.stdin.read()
-    n, *a = list(map(int, input.split()))
-    if get_majority_element(a, 0, n) != -1:
-        print(1)
-    else:
-        print(0)
+
+if __name__ == "__main__":
+    _ = input()
+    a = list(map(int, input().split()))
+    print(get_majority_element(a))
