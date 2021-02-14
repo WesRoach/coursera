@@ -4,7 +4,7 @@ from math import floor, ceil
 def binary_search(a: list, key: int) -> int:
     if key < a[0] or key > a[-1]:
         return -1
-    low, high = 0, len(a)
+    low, high = 0, len(a) - 1
     while low <= high:
         mid = ceil(low + ((high - low) / 2))
         if a[mid] == key:
