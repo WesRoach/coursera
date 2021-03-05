@@ -57,6 +57,7 @@ def test_brute_minimum_distance(coordinates, expected):
     assert expected == pytest.approx(brute_minimum_distance(coordinates), 0.001)
 
 
+@pytest.mark.skip(reason="Intentionally loops infinitely.")
 def test_via_random_generation():
     """This will run until ctrl-c is passed or a test fails.
     """
