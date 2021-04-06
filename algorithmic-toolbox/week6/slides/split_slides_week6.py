@@ -47,7 +47,36 @@ def split_slides(
 
 
 split_slides(
-    "original/04_dynamic_programming_1_changeproblem.pdf",
+    "original/4-dynprog-3-knapsack.pdf",
     "reduced",
-    remove_pages=[],
+    remove_pages=[
+        6,
+        7,
+        9,
+        13,
+        14,
+        range(16, 19),
+        22,
+        25,
+        27,
+        39,
+        range(42, 44),
+        46,
+        48,
+        51,
+        62,
+        range(64, 66),
+    ],
+)
+
+split_slides(
+    "original/4-dynprog-4-maxarith.pdf",
+    "reduced",
+    remove_pages=[
+        range(3, 5),
+        7,
+        11,
+        14,
+        16,
+    ],
 )
