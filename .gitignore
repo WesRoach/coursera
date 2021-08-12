@@ -154,3 +154,4 @@ bazel-*
 .settings/
 # Maven
 target/
+build-a-modern-computer-from-first-principles-from-nand-to-tetris/
